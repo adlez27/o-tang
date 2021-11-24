@@ -47,7 +47,7 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = getItem(position);
 
         holder.username.setText(user.getUsername());
