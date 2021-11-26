@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Vortex/Documents/GitHub/o-tang/app/src/main/res/layout/activity_active_transactions.xml" value="0.4" />
+        <entry key="..\:/Users/Vortex/Documents/GitHub/o-tang/app/src/main/res/layout/activity_edit_transaction.xml" value="0.264" />
+        <entry key="..\:/Users/Vortex/Documents/GitHub/o-tang/app/src/main/res/layout/activity_history.xml" value="0.264" />
+        <entry key="..\:/Users/Vortex/Documents/GitHub/o-tang/app/src/main/res/layout/activity_view_history_transaction.xml" value="0.264" />
+        <entry key="..\:/Users/Vortex/Documents/GitHub/o-tang/app/src/main/res/layout/activity_view_transaction.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
