@@ -7,87 +7,128 @@
     tools:context=".ViewHistoryTransactionActivity">
 
     <TextView
-        android:id="@+id/viewHistoryAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="400"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="258dp"
-        tools:layout_editor_absoluteY="218dp" />
-
-    <TextView
-        android:id="@+id/creationDateLabel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Transaction Created:"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp" />
-
-    <TextView
-        android:id="@+id/viewHistoryDirection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="YOU O:"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="218dp" />
-
-    <TextView
-        android:id="@+id/viewHistoryCreationDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Oct 4, 2021"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="327dp" />
-
-    <TextView
-        android:id="@+id/viewHistoryPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jeffrey"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="186dp" />
-
-    <TextView
-        android:id="@+id/pesoLabel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PHP"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="218dp" />
-
-    <TextView
-        android:id="@+id/viewTransactionLabel2"
+        android:id="@+id/viewTransactionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Transaction"
+        android:textColor="@color/otangorange"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintVertical_bias="0.083" />
 
     <TextView
-        android:id="@+id/viewHistoryContactDetails"
+        android:id="@+id/viewAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="400"
+        android:textColor="@color/green"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.671"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <TextView
+        android:id="@+id/creationDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction Created: "
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/viewDirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOU O: "
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <TextView
+        android:id="@+id/viewCreationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oct 4, 2021"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/viewPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jeffrey"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <TextView
+        android:id="@+id/pesoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHP "
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <TextView
+        android:id="@+id/viewContactDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0917-xxx-xxxx"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="273dp" />
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
 
     <TextView
-        android:id="@+id/contactDetailsLabel2"
+        android:id="@+id/contactDetailsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact Details: "
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="273dp" />
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
 </androidx.constraintlayout.widget.ConstraintLayout>

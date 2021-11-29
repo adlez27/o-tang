@@ -11,13 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Transaction"
+        android:textColor="@color/otangorange"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintVertical_bias="0.083" />
 
     <RadioButton
         android:id="@+id/editDirectionDebt"
@@ -26,8 +28,12 @@
         android:checked="true"
         android:text="O Money"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="183dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.256" />
 
     <RadioButton
         android:id="@+id/editDirectionReceive"
@@ -35,8 +41,12 @@
         android:layout_height="wrap_content"
         android:text="O Me Money"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="241dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.348" />
 
     <EditText
         android:id="@+id/editAmount"
@@ -45,49 +55,64 @@
         android:ems="10"
         android:hint="Amount"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="343dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editPerson"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="482dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name of Person" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/editPerson"
-        tools:layout_editor_absoluteX="1dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editContactDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contact Details" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/editOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_button"
         android:text="Save"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="640dp" />
+        android:textColor="@color/black"
+        app:backgroundTint="@color/otangorange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/editCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_button"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="640dp" />
+        android:textColor="@color/black"
+        app:backgroundTint="@color/cream"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editPerson"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:hint="Name of Person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editContactDetails"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:hint="Contact Details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
