@@ -17,9 +17,9 @@ import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.ViewHolder> {
-    AppCompatActivity activity;
+    AdminActivity activity;
 
-    public UserAdapter(AppCompatActivity activity, @Nullable OrderedRealmCollection<User> data, boolean autoUpdate) {
+    public UserAdapter(AdminActivity activity, @Nullable OrderedRealmCollection<User> data, boolean autoUpdate) {
         super(data, autoUpdate);
         this.activity = activity;
     }
