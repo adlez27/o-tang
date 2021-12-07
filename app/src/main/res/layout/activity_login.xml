@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/TextForUsername"
+            android:id="@+id/loginUsernameLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Username" />
@@ -48,7 +48,7 @@
             android:minHeight="48dp" />
 
         <TextView
-            android:id="@+id/TextForPassword"
+            android:id="@+id/loginPasswordLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password" />
