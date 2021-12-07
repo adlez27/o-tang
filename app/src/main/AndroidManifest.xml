@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OTang">
         <activity
+            android:name=".EditTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewHistoryTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActiveTransactionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

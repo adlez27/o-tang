@@ -4,80 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ViewHistoryTransactionActivity">
 
     <TextView
-        android:id="@+id/mainDirection2"
+        android:id="@+id/viewTransactionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="YOU O: "
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:text="View Transaction"
+        android:textColor="@color/otangorange"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
+        app:layout_constraintVertical_bias="0.083" />
 
     <TextView
-        android:id="@+id/mainTotalDebt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="400"
-        android:textColor="@color/red"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.671"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
-
-    <TextView
-        android:id="@+id/mainPesoLabel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PHP "
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
-
-    <TextView
-        android:id="@+id/mainPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jeffrey"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.681"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
-
-    <TextView
-        android:id="@+id/mainGreeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello,"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
-
-    <TextView
-        android:id="@+id/mainTotalReceive"
+        android:id="@+id/viewAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="400"
@@ -91,10 +36,24 @@
         app:layout_constraintVertical_bias="0.311" />
 
     <TextView
-        android:id="@+id/mainDirection"
+        android:id="@+id/creationDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="O YOU: "
+        android:text="Transaction Created: "
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/viewDirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOU O: "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,7 +64,34 @@
         app:layout_constraintVertical_bias="0.311" />
 
     <TextView
-        android:id="@+id/mainPesoLabel"
+        android:id="@+id/viewCreationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oct 4, 2021"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/viewPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jeffrey"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <TextView
+        android:id="@+id/pesoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PHP "
@@ -119,60 +105,68 @@
         app:layout_constraintVertical_bias="0.311" />
 
     <TextView
-        android:id="@+id/mainActivityTitle"
+        android:id="@+id/viewContactDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="85dp"
-        android:text="O-Tang"
-        android:textColor="@color/otangorange"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:text="0917-xxx-xxxx"
+        android:textColor="@color/black"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.763"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.42" />
+
+    <TextView
+        android:id="@+id/contactDetailsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Details: "
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
 
     <LinearLayout
-        android:layout_width="336dp"
-        android:layout_height="367dp"
+        android:layout_width="116dp"
+        android:layout_height="157dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986">
+        app:layout_constraintVertical_bias="0.894">
 
         <Button
-            android:id="@+id/mainAddButton"
+            android:id="@+id/viewComplete"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/rounded_button"
-            android:text="Add Transaction"
+            android:layout_height="wrap_content"
+            android:text="Complete"
             android:textColor="@color/black"
-            app:backgroundTint="@color/paleorange" />
+            app:backgroundTint="@color/otangorange" />
 
         <Button
-            android:id="@+id/mainActiveButton"
+            android:id="@+id/viewEdit"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_button"
-            android:text="Active Transactions"
+            android:layout_height="wrap_content"
+            android:text="Edit"
             android:textColor="@color/black"
-            app:backgroundTint="@color/paleorange" />
+            app:backgroundTint="@color/cream" />
 
         <Button
-            android:id="@+id/mainHistroyButton"
+            android:id="@+id/viewDelete"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_button"
-            android:text="History"
+            android:layout_height="wrap_content"
+            android:text="Delete"
             android:textColor="@color/black"
-            app:backgroundTint="@color/paleorange" />
+            app:backgroundTint="@color/palered" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
