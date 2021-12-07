@@ -68,7 +68,7 @@
         android:background="@drawable/rounded_button"
         android:text="Save"
         android:textColor="@color/black"
-        app:backgroundTint="@color/otangorange"
+        app:backgroundTint="@color/paleorange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.221"
