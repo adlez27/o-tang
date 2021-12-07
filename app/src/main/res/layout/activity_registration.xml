@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.493">
 
         <TextView
-            android:id="@+id/TextForUsernameReg"
+            android:id="@+id/registrationUsernameLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Username" />
@@ -32,7 +32,7 @@
             android:minHeight="48dp" />
 
         <TextView
-            android:id="@+id/registration_PasswordText"
+            android:id="@+id/registrationPasswordLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:minHeight="48dp" />
 
         <EditText
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Confirm Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:minHeight="48dp" />
 
         <Button

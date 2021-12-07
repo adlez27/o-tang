@@ -14,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.File;
 
 import io.realm.OrderedRealmCollection;
+import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.ViewHolder> {
     AdminActivity activity;
+    Realm realm;
 
     public UserAdapter(AdminActivity activity, @Nullable OrderedRealmCollection<User> data, boolean autoUpdate) {
         super(data, autoUpdate);
@@ -52,6 +54,15 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User, UserAdapter.View
 
         holder.username.setText(user.getUsername());
         holder.password.setText(user.getPassword());
+
+        realm = Realm.getDefaultInstance();
+        int transactionCount = realm.where(Transaction.class)
+                .equalTo("userId", user.getUuid())
+                .findAll()
+                .size();
+        realm.close();
+
+        holder.transactions.setText("# of transactions: " + transactionCount);
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
