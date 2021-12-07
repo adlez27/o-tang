@@ -4,12 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/rounded_button.xml" value="0.27239583333333334" />
-        <entry key="app/src/main/res/layout/activity_active_transactions.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_edit_transaction.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/gradient.xml" value="0.14791666666666667" />
+        <entry key="app/src/main/res/layout/activity_active_transactions.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.43832601432640284" />
+        <entry key="app/src/main/res/layout/activity_edit_transaction.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_history.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19128721652419423" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_view_history_transaction.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_view_transaction.xml" value="0.1503623188405797" />
