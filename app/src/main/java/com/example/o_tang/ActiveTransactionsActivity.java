@@ -38,23 +38,28 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
     @AfterViews
     public void init() {
         realm = Realm.getDefaultInstance();
-        prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
-        transactionsRecycler.setLayoutManager(layoutManager);
+       transactionsRecycler.setLayoutManager(layoutManager);
 
-        String uuid = prefs.getString("uuid", "");
-        RealmResults<Transaction> list = realm.where(Transaction.class)
-                .contains("userId", uuid)
-                .findAll();
+        RealmResults<Transaction> list = realm.where(Transaction.class).findAll();
 
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
         transactionsRecycler.setAdapter(adapter);
     }
 
-    public void onDestroy() {
+    public void  onDestroy() {
         super.onDestroy();
         realm.close();
+    }
+
+    public void delete(Transaction transaction){
+        realm.beginTransaction();
+        realm.where(Transaction.class)
+                .equalTo("uuid", transaction.getUuid())
+                .findAll()
+                .deleteFirstFromRealm();
+        realm.commitTransaction();
     }
 }
