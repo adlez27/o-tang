@@ -26,7 +26,7 @@
             android:name=".HistoryActivity_"
             android:exported="false" />
         <activity
-            android:name=".ActiveTransactionsActivity"
+            android:name=".ActiveTransactionsActivity_"
             android:exported="false" />
         <activity
             android:name=".MainActivity_"
