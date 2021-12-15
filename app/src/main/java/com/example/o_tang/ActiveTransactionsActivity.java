@@ -28,9 +28,9 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
     @ViewById(R.id.activeTransactionsRecycler)
     RecyclerView transactionsRecycler;
     @ViewById(R.id.debtTotal)
-    TextView debtTotal;
+    TextView debtTotalText;
     @ViewById(R.id.receiveTotal)
-    TextView receiveTotal;
+    TextView receiveTotalText;
 
     Realm realm;
     SharedPreferences prefs;
@@ -51,6 +51,18 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
 
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
         transactionsRecycler.setAdapter(adapter);
+
+        double receiveTotal = 0.0;
+        double debtTotal = 0.0;
+        for(Transaction t : list) {
+            if (t.isOwed())
+                debtTotal += t.getAmount();
+            else
+                receiveTotal += t.getAmount();
+        }
+
+        receiveTotalText.setText(String.format("%.2f", receiveTotal));
+        debtTotalText.setText(String.format("%.2f", debtTotal));
     }
 
     public void onDestroy() {
