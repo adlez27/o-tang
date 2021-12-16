@@ -55,7 +55,7 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
                     RealmResults<Transaction> list = realm.where(Transaction.class)
                             .equalTo("userId", uuid)
                             .equalTo("isActive", true)
-                            .equalTo("isOwed", false)
+                            .equalTo("isOwed", true)
                             .findAll();
                     TransactionAdapter adapter = new TransactionAdapter(this, list, true);
                     transactionsRecycler.setAdapter(adapter);
@@ -66,7 +66,7 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
                     RealmResults<Transaction> list = realm.where(Transaction.class)
                             .equalTo("userId", uuid)
                             .equalTo("isActive", true)
-                            .equalTo("isOwed", true)
+                            .equalTo("isOwed", false)
                             .findAll();
                     TransactionAdapter adapter = new TransactionAdapter(this, list, true);
                     transactionsRecycler.setAdapter(adapter);
