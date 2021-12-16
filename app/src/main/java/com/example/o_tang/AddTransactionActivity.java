@@ -52,26 +52,26 @@ public class AddTransactionActivity extends AppCompatActivity {
 
     @Click(R.id.addTransactionSave)
     public void addTransaction() {
-        String transactionPersonText = transactionPerson.getText().toString();
-        Double transactionAmountDouble = Double.parseDouble(transactionAmount.getText().toString());
-        String transactionContactDetailText = transactionContactDetails.getText().toString();
-        if (transactionAmountDouble.equals("")){
+        String person = transactionPerson.getText().toString();
+        String amountText = transactionAmount.getText().toString();
+        String contactDetails = transactionContactDetails.getText().toString();
+        if (amountText.equals("")){
             Toast t = Toast.makeText(this, "Amount must not be blank", Toast.LENGTH_LONG);
             t.show();
         }
-        else if (transactionContactDetailText.equals("")){
-            Toast t = Toast.makeText(this, "Contact Details must not be blank", Toast.LENGTH_LONG);
+        else if (person.equals("")) {
+            Toast t = Toast.makeText(this, "Person must not be blank", Toast.LENGTH_LONG);
             t.show();
         }
-        else if (transactionPersonText.equals("")) {
-            Toast t = Toast.makeText(this, "Person must not be blank", Toast.LENGTH_LONG);
+        else if (contactDetails.equals("")){
+            Toast t = Toast.makeText(this, "Contact Details must not be blank", Toast.LENGTH_LONG);
             t.show();
         } else {
             realm.beginTransaction();
             Transaction transaction = realm.createObject(Transaction.class, UUID.randomUUID().toString());
-            transaction.setPerson(transactionPersonText);
-            transaction.setAmount(transactionAmountDouble);
-            transaction.setPerson(transactionPersonText);
+            transaction.setAmount(Double.parseDouble(amountText));
+            transaction.setContactDetails(contactDetails);
+            transaction.setPerson(person);
             realm.commitTransaction();
 
             Toast t = Toast.makeText(this, "Transaction Added", Toast.LENGTH_LONG);
