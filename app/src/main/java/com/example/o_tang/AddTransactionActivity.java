@@ -36,9 +36,6 @@ public class AddTransactionActivity extends AppCompatActivity {
     @ViewById(R.id.addTransactionDebt)
     RadioButton transactionDebt;
 
-//    @ViewById(R.id.addTransactionReceive)
-//    RadioButton transactionReceive;
-
     Realm realm;
     SharedPreferences prefs;
 
