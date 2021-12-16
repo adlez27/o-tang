@@ -20,6 +20,9 @@
             android:name=".ViewHistoryTransactionActivity"
             android:exported="false" />
         <activity
+            android:name=".AddTransactionActivity_"
+            android:exported="false" />
+        <activity
             android:name=".ViewTransactionActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/addTransactionRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/addTransactionAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addTransactionLabel">
+
+        <RadioButton
+            android:id="@+id/addTransactionDebt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="O Money"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/addTransactionReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O Me Money"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addTransactionPerson"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:hint="Name of Person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653" />
+
+    <EditText
+        android:id="@+id/addTransactionAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Amount"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addTransactionSave"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_button"
+        android:text="Save"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/paleorange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
+
+    <TextView
+        android:id="@+id/addTransactionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Transaction"
+        android:textColor="@color/otangorange"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addTransactionContactDetails"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:hint="Contact Details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
+
+    <Button
+        android:id="@+id/addTransactionCancel"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_button"
+        android:text="Cancel"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/cream"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

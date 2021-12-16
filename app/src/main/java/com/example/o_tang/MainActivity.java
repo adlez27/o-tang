@@ -71,4 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Click(R.id.mainHistoryButton)
     public void history(){ HistoryActivity_.intent(this).start();}
+
+    @Click(R.id.mainAddButton)
+    public void goToAddTransaction(){ AddTransactionActivity_.intent(this).start();}
+
 }

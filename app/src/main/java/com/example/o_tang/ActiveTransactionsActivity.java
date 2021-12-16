@@ -46,7 +46,8 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
 
         String uuid = prefs.getString("uuid", "");
         RealmResults<Transaction> list = realm.where(Transaction.class)
-                .contains("userId", uuid)
+                .equalTo("userId", uuid)
+                .equalTo("isActive", true)
                 .findAll();
 
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
@@ -68,5 +69,14 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         realm.close();
+    }
+
+    public void delete(Transaction transaction){
+        realm.beginTransaction();
+        realm.where(Transaction.class)
+                .equalTo("uuid", transaction.getUuid())
+                .findAll()
+                .deleteFirstFromRealm();
+        realm.commitTransaction();
     }
 }
