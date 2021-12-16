@@ -16,20 +16,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activeTransactionsRecycler"
-        android:layout_width="306dp"
-        android:layout_height="381dp"
+        android:layout_width="305dp"
+        android:layout_height="253dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activeFilterGroup">
+        app:layout_constraintTop_toBottomOf="@+id/activeFilterGroup"
+        app:layout_constraintVertical_bias="0.185">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -37,10 +37,10 @@
         android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activeTransactionsRecycler">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -89,21 +89,23 @@
 
     <RadioGroup
         android:id="@+id/activeFilterGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="316dp"
+        android:layout_height="110dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activeTransactionsLabel"
-        app:layout_constraintVertical_bias="0.084" >
+        app:layout_constraintVertical_bias="0.067">
 
         <RadioButton
             android:id="@+id/activeFilterDebt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="15"
+            android:gravity="center"
             android:text="O MONEY TO" />
 
         <RadioButton
@@ -111,14 +113,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="15"
+            android:gravity="center"
             android:text="O ME MONEY" />
 
         <RadioButton
             android:id="@+id/activeFilterAll"
-            android:layout_width="match_parent"
+            android:layout_width="263dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
             android:checked="true"
+            android:gravity="center"
             android:text="ALL" />
     </RadioGroup>
 
