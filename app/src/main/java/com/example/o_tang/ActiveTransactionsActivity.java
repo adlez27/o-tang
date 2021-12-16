@@ -1,15 +1,16 @@
 package com.example.o_tang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -31,6 +32,7 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
     TextView debtTotalText;
     @ViewById(R.id.receiveTotal)
     TextView receiveTotalText;
+
 
     Realm realm;
     SharedPreferences prefs;
@@ -79,4 +81,6 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
                 .deleteFirstFromRealm();
         realm.commitTransaction();
     }
+
+
 }
