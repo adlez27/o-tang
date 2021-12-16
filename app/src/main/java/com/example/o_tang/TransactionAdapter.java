@@ -45,9 +45,9 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
         holder.person.setText(transaction.getPerson());
 
         if (transaction.isOwed()) {
-            holder.info.setText("You O: PHP " + transaction.getAmount());
+            holder.info.setText("You O: PHP " + String.format("%.2f",transaction.getAmount()));
         } else {
-            holder.info.setText("O You: PHP " + transaction.getAmount());
+            holder.info.setText("O You: PHP " + String.format("%.2f",transaction.getAmount()));
         }
 
         // The whole item is meant to be clickable, so I think a click listener has to go here?
