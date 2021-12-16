@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -20,11 +22,11 @@ import io.realm.RealmResults;
 public class ActiveTransactionsActivity extends AppCompatActivity {
 
     @ViewById(R.id.activeFilterDebt)
-    Button filterDebt;
+    RadioButton filterDebt;
     @ViewById(R.id.activeFilterReceive)
-    Button filterReceive;
+    RadioButton filterReceive;
     @ViewById(R.id.activeFilterAll)
-    Button filterAll;
+    RadioButton filterAll;
     @ViewById(R.id.activeTransactionsRecycler)
     RecyclerView transactionsRecycler;
     @ViewById(R.id.debtTotal)
@@ -34,6 +36,54 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
 
     Realm realm;
     SharedPreferences prefs;
+
+    @Click({R.id.activeFilterDebt, R.id.activeFilterReceive, R.id.activeFilterAll})
+    public void filterList(RadioButton radioButton) {
+        boolean checked = radioButton.isChecked();
+        realm = Realm.getDefaultInstance();
+        prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        transactionsRecycler.setLayoutManager(layoutManager);
+
+        String uuid = prefs.getString("uuid", "");
+
+        switch (radioButton.getId()) {
+            case R.id.activeFilterDebt:
+                if (checked) {
+                    RealmResults<Transaction> list = realm.where(Transaction.class)
+                            .equalTo("userId", uuid)
+                            .equalTo("isActive", true)
+                            .equalTo("isOwed", true)
+                            .findAll();
+                    TransactionAdapter adapter = new TransactionAdapter(this, list, true);
+                    transactionsRecycler.setAdapter(adapter);
+                }
+                break;
+            case R.id.activeFilterReceive:
+                if (checked) {
+                    RealmResults<Transaction> list = realm.where(Transaction.class)
+                            .equalTo("userId", uuid)
+                            .equalTo("isActive", true)
+                            .equalTo("isOwed", false)
+                            .findAll();
+                    TransactionAdapter adapter = new TransactionAdapter(this, list, true);
+                    transactionsRecycler.setAdapter(adapter);
+                }
+                break;
+            case R.id.activeFilterAll:
+                if (checked) {
+                    RealmResults<Transaction> list = realm.where(Transaction.class)
+                            .equalTo("userId", uuid)
+                            .equalTo("isActive", true)
+                            .findAll();
+                    TransactionAdapter adapter = new TransactionAdapter(this, list, true);
+                    transactionsRecycler.setAdapter(adapter);
+                }
+                break;
+        }
+    }
 
     @AfterViews
     public void init() {
