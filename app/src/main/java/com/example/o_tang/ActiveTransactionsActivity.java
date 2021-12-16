@@ -46,7 +46,8 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
 
         String uuid = prefs.getString("uuid", "");
         RealmResults<Transaction> list = realm.where(Transaction.class)
-                .contains("userId", uuid)
+                .equalTo("userId", uuid)
+                .equalTo("isActive", true)
                 .findAll();
 
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
