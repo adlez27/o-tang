@@ -29,20 +29,32 @@ public class MainActivity extends AppCompatActivity {
     Realm realm;
     SharedPreferences prefs;
 
+    User user;
+
     @AfterViews
     public void init() {
         realm = Realm.getDefaultInstance();
         prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
 
         String userId = prefs.getString("uuid", "");
-        User user = realm.where(User.class)
+        user = realm.where(User.class)
                 .equalTo("uuid", userId)
                 .findFirst();
 
         name.setText(user.getUsername());
+        updateTotals();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateTotals();
+    }
+
+    private void updateTotals() {
         RealmResults<Transaction> userTransactions = realm.where(Transaction.class)
-                .equalTo("userId", userId)
+                .equalTo("userId", user.getUuid())
+                .equalTo("isActive", true)
                 .findAll();
 
         double receiveTotal = 0.0;
