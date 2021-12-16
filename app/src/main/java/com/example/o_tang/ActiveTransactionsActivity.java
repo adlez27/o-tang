@@ -38,6 +38,7 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
     @AfterViews
     public void init() {
         realm = Realm.getDefaultInstance();
+        prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);

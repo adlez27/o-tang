@@ -16,6 +16,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.Date;
 import java.util.UUID;
 
 import io.realm.Realm;
@@ -35,14 +36,16 @@ public class AddTransactionActivity extends AppCompatActivity {
     @ViewById(R.id.addTransactionDebt)
     RadioButton transactionDebt;
 
-    @ViewById(R.id.addTransactionReceive)
-    RadioButton transactionReceive;
+//    @ViewById(R.id.addTransactionReceive)
+//    RadioButton transactionReceive;
 
     Realm realm;
+    SharedPreferences prefs;
 
     @AfterViews
     public void init() {
         realm = Realm.getDefaultInstance();
+        prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
     }
 
     public void onDestroy() {
@@ -69,9 +72,13 @@ public class AddTransactionActivity extends AppCompatActivity {
         } else {
             realm.beginTransaction();
             Transaction transaction = realm.createObject(Transaction.class, UUID.randomUUID().toString());
+            transaction.setUserId(prefs.getString("uuid",""));
+            transaction.setOwed(transactionDebt.isChecked());
+            transaction.setActive(true);
             transaction.setAmount(Double.parseDouble(amountText));
-            transaction.setContactDetails(contactDetails);
             transaction.setPerson(person);
+            transaction.setContactDetails(contactDetails);
+            transaction.setDateCreated(new Date());
             realm.commitTransaction();
 
             Toast t = Toast.makeText(this, "Transaction Added", Toast.LENGTH_LONG);
