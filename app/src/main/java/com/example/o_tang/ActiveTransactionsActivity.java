@@ -41,15 +41,18 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
-       transactionsRecycler.setLayoutManager(layoutManager);
+        transactionsRecycler.setLayoutManager(layoutManager);
 
-        RealmResults<Transaction> list = realm.where(Transaction.class).findAll();
+        String uuid = prefs.getString("uuid", "");
+        RealmResults<Transaction> list = realm.where(Transaction.class)
+                .contains("userId", uuid)
+                .findAll();
 
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
         transactionsRecycler.setAdapter(adapter);
     }
 
-    public void  onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         realm.close();
     }
