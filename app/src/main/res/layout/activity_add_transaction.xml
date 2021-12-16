@@ -5,19 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
-        android:id="@+id/addTransactionDebt"
+    <RadioGroup
+        android:id="@+id/addTransactionRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="O Money"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addTransactionAmount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintTop_toBottomOf="@+id/addTransactionLabel">
+
+        <RadioButton
+            android:id="@+id/addTransactionDebt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="O Money"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/addTransactionReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O Me Money"
+            android:textSize="20sp" />
+    </RadioGroup>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/addTransactionPerson"
@@ -42,19 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/addTransactionReceive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="O Me Money"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
 
     <Button
         android:id="@+id/addTransactionSave"
@@ -113,4 +111,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.937"
         tools:ignore="TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
