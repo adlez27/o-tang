@@ -70,7 +70,7 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
                 if (transaction.isActive()) {
                     ViewTransactionActivity_.intent(activity).start();
                 } else {
-//                    ViewHistoryTransactionActivity_.intent(activity).start();
+                    ViewHistoryTransactionActivity_.intent(activity).start();
                 }
             }
         });
