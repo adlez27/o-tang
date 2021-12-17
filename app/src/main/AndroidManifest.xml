@@ -14,7 +14,7 @@
             android:name=".AdminActivity_"
             android:exported="false" />
         <activity
-            android:name=".EditTransactionActivity"
+            android:name=".EditTransactionActivity_"
             android:exported="false" />
         <activity
             android:name=".ViewHistoryTransactionActivity"

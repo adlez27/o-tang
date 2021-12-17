@@ -46,8 +46,6 @@ public class ViewTransactionActivity extends AppCompatActivity {
                 .equalTo("uuid", transactionId)
                 .findFirst();
 
-        Log.i("o-tang", "Get from prefs " + transaction.toString());
-
         name.setText(transaction.getPerson());
         if (transaction.isOwed()) {
             directionLabel.setText("YOU O: ");
@@ -73,6 +71,11 @@ public class ViewTransactionActivity extends AppCompatActivity {
         finish();
         Toast t = Toast.makeText(this, "Transaction completed", Toast.LENGTH_LONG);
         t.show();
+    }
+
+    @Click(R.id.viewEdit)
+    public void edit() {
+        EditTransactionActivity_.intent(this).start();
     }
 
     @Click(R.id.viewDelete)

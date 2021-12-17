@@ -84,7 +84,7 @@ public class AddTransactionActivity extends AppCompatActivity {
         }
     }
     @Click(R.id.addTransactionCancel)
-    public void register() {
-        MainActivity_.intent(this).start();
+    public void cancel() {
+        finish();
     }
 }
