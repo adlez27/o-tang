@@ -45,7 +45,16 @@ public class ViewTransactionActivity extends AppCompatActivity {
         transaction = realm.where(Transaction.class)
                 .equalTo("uuid", transactionId)
                 .findFirst();
+        updateInfo();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateInfo();
+    }
+
+    public void updateInfo () {
         name.setText(transaction.getPerson());
         if (transaction.isOwed()) {
             directionLabel.setText("YOU O: ");
