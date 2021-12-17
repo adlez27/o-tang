@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -28,7 +27,9 @@ public class ViewHistoryTransactionActivity extends AppCompatActivity {
     @ViewById(R.id.viewContactDetails)
     TextView contactDetails;
     @ViewById(R.id.viewCreationDate)
-    TextView date;
+    TextView creationDate;
+    @ViewById(R.id.viewCompletionDate)
+    TextView completionDate;
 
     Realm realm;
     SharedPreferences prefs;
@@ -44,8 +45,6 @@ public class ViewHistoryTransactionActivity extends AppCompatActivity {
                 .equalTo("uuid", transactionId)
                 .findFirst();
 
-        Log.i("o-tang", "Get from prefs " + transaction.toString());
-
         name.setText(transaction.getPerson());
         if (transaction.isOwed()) {
             directionLabel.setText("YOU O: ");
@@ -59,6 +58,7 @@ public class ViewHistoryTransactionActivity extends AppCompatActivity {
         contactDetails.setText(transaction.getContactDetails());
 
         SimpleDateFormat df = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
-        date.setText(df.format(transaction.getDateCreated()));
+        creationDate.setText(df.format(transaction.getDateCreated()));
+        completionDate.setText(df.format(transaction.getDateCompleted()));
     }
 }
