@@ -1,6 +1,7 @@
 package com.example.o_tang;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +60,10 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
 
         if (transaction.isOwed()) {
             holder.info.setText("You O: PHP " + String.format("%.2f",transaction.getAmount()));
+            holder.info.setTextColor(Color.RED);
         } else {
             holder.info.setText("O You: PHP " + String.format("%.2f",transaction.getAmount()));
+            holder.info.setTextColor(Color.GREEN);
         }
 
         holder.item.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +73,7 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
                 if (transaction.isActive()) {
                     ViewTransactionActivity_.intent(activity).start();
                 } else {
-//                    ViewHistoryTransactionActivity_.intent(activity).start();
+                    ViewHistoryTransactionActivity_.intent(activity).start();
                 }
             }
         });
