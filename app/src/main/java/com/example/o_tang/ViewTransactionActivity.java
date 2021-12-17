@@ -45,9 +45,16 @@ public class ViewTransactionActivity extends AppCompatActivity {
         transaction = realm.where(Transaction.class)
                 .equalTo("uuid", transactionId)
                 .findFirst();
+        updateInfo();
+    }
 
-        Log.i("o-tang", "Get from prefs " + transaction.toString());
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateInfo();
+    }
 
+    public void updateInfo () {
         name.setText(transaction.getPerson());
         if (transaction.isOwed()) {
             directionLabel.setText("YOU O: ");
@@ -73,6 +80,11 @@ public class ViewTransactionActivity extends AppCompatActivity {
         finish();
         Toast t = Toast.makeText(this, "Transaction completed", Toast.LENGTH_LONG);
         t.show();
+    }
+
+    @Click(R.id.viewEdit)
+    public void edit() {
+        EditTransactionActivity_.intent(this).start();
     }
 
     @Click(R.id.viewDelete)
