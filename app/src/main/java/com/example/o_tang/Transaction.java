@@ -10,10 +10,10 @@ public class Transaction extends RealmObject {
     private String uuid;
 
     private String userId;
-    boolean isOwed, isActive;
-    double amount;
-    String person, contactDetails;
-    Date dateCreated, dateCompleted;
+    private boolean isOwed, isActive;
+    private double amount;
+    private String person, contactDetails;
+    private Date dateCreated, dateCompleted;
 
     public Transaction() {
     }

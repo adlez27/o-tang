@@ -15,7 +15,7 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 @EActivity(R.layout.activity_history)
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends ListTransactionsActivity{
     @ViewById(R.id.historyRecycler)
     RecyclerView historyRecycler;
 
@@ -42,18 +42,14 @@ public class HistoryActivity extends AppCompatActivity {
         historyRecycler.setAdapter(adapter);
     }
 
-    public void  onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         realm.close();
     }
 
-    public void delete(Transaction transaction){
-        realm.beginTransaction();
-        realm.where(Transaction.class)
-                .equalTo("uuid", transaction.getUuid())
-                .findAll()
-                .deleteFirstFromRealm();
-        realm.commitTransaction();
+    public void putInPrefs(Transaction transaction) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("transactionId", transaction.getUuid());
+        editor.commit();
     }
-    
 }

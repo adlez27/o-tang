@@ -3,71 +3,88 @@ package com.example.o_tang;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.widget.Button;
+import android.graphics.Color;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 @EActivity(R.layout.activity_view_transaction)
 public class ViewTransactionActivity extends AppCompatActivity {
-    @ViewById(R.id.viewComplete)
-    Button ViewComplete;
     @ViewById(R.id.viewPerson)
-    TextView ViewPerson;
+    TextView name;
+    @ViewById(R.id.viewDirection)
+    TextView directionLabel;
+    @ViewById(R.id.viewAmount)
+    TextView amount;
+    @ViewById(R.id.viewContactDetails)
+    TextView contactDetails;
+    @ViewById(R.id.viewCreationDate)
+    TextView date;
+
     Realm realm;
     SharedPreferences prefs;
 
+    Transaction transaction;
+
+    @AfterViews
     public void init(){
         realm = Realm.getDefaultInstance();
         prefs = getSharedPreferences("o-tang", MODE_PRIVATE);
-        String uuid = prefs.getString("uuid", "");
-        realm.where(Transaction.class)
-                .equalTo("userId", uuid)
-                .equalTo("isActive", true)
+        String transactionId = prefs.getString("transactionId", "");
+        transaction = realm.where(Transaction.class)
+                .equalTo("uuid", transactionId)
                 .findFirst();
+
+        Log.i("o-tang", "Get from prefs " + transaction.toString());
+
+        name.setText(transaction.getPerson());
+        if (transaction.isOwed()) {
+            directionLabel.setText("YOU O: ");
+            amount.setTextColor(Color.RED);
+        } else {
+            directionLabel.setText("O YOU: ");
+            amount.setTextColor(Color.GREEN);
+        }
+
+        amount.setText(String.format("%.2f", transaction.getAmount()));
+        contactDetails.setText(transaction.getContactDetails());
+
+        SimpleDateFormat df = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+        date.setText(df.format(transaction.getDateCreated()));
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_transaction);
-    }
     @Click(R.id.viewComplete)
-    public void CompleteTransactionClicked(Transaction transaction){
-
-        Date c = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-        String formattedDate = df.format(c);
-        Transaction CT = realm.where(Transaction.class)
-                .equalTo("uuid", transaction.getUuid())
-                .findFirst();
+    public void complete(){
         realm.beginTransaction();
-        CT.setOwed(false);
-        CT.setDateCompleted(c);
-        CT.setActive(false);
-
-
-
+        transaction.setDateCompleted(new Date());
+        transaction.setActive(false);
+        realm.commitTransaction();
+        finish();
+        Toast t = Toast.makeText(this, "Transaction completed", Toast.LENGTH_LONG);
+        t.show();
     }
 
     @Click(R.id.viewDelete)
-    public void delete(Transaction transaction){
+    public void delete(){
         realm.beginTransaction();
         realm.where(Transaction.class)
                 .equalTo("uuid", transaction.getUuid())
                 .findAll()
                 .deleteFirstFromRealm();
         realm.commitTransaction();
+        finish();
+        Toast t = Toast.makeText(this, "Transaction deleted", Toast.LENGTH_LONG);
+        t.show();
     }
 }
