@@ -38,6 +38,8 @@ public class ActiveTransactionsActivity extends ListTransactionsActivity {
     Realm realm;
     SharedPreferences prefs;
 
+    RealmResults<Transaction> list;
+
     @Click({R.id.activeFilterDebt, R.id.activeFilterReceive, R.id.activeFilterAll})
     public void filterList(RadioButton radioButton) {
         boolean checked = radioButton.isChecked();
@@ -96,7 +98,7 @@ public class ActiveTransactionsActivity extends ListTransactionsActivity {
         transactionsRecycler.setLayoutManager(layoutManager);
 
         String uuid = prefs.getString("uuid", "");
-        RealmResults<Transaction> list = realm.where(Transaction.class)
+        list = realm.where(Transaction.class)
                 .equalTo("userId", uuid)
                 .equalTo("isActive", true)
                 .findAll();
@@ -104,6 +106,10 @@ public class ActiveTransactionsActivity extends ListTransactionsActivity {
         TransactionAdapter adapter = new TransactionAdapter(this, list, true);
         transactionsRecycler.setAdapter(adapter);
 
+        updateTotals();
+    }
+
+    public void updateTotals() {
         double receiveTotal = 0.0;
         double debtTotal = 0.0;
         for(Transaction t : list) {
@@ -120,6 +126,11 @@ public class ActiveTransactionsActivity extends ListTransactionsActivity {
     public void onDestroy() {
         super.onDestroy();
         realm.close();
+    }
+
+    public void onResume() {
+        super.onResume();
+        updateTotals();
     }
 
     public void putInPrefs(Transaction transaction) {
