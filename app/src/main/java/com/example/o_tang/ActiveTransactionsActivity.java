@@ -1,11 +1,12 @@
 package com.example.o_tang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 @EActivity(R.layout.activity_active_transactions)
-public class ActiveTransactionsActivity extends AppCompatActivity {
+public class ActiveTransactionsActivity extends ListTransactionsActivity {
 
     @ViewById(R.id.activeFilterDebt)
     RadioButton filterDebt;
@@ -121,12 +122,9 @@ public class ActiveTransactionsActivity extends AppCompatActivity {
         realm.close();
     }
 
-    public void delete(Transaction transaction){
-        realm.beginTransaction();
-        realm.where(Transaction.class)
-                .equalTo("uuid", transaction.getUuid())
-                .findAll()
-                .deleteFirstFromRealm();
-        realm.commitTransaction();
+    public void putInPrefs(Transaction transaction) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("transactionId", transaction.getUuid());
+        editor.commit();
     }
 }

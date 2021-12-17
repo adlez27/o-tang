@@ -1,5 +1,7 @@
 package com.example.o_tang;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,26 +9,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.EReceiver;
+import org.androidannotations.annotations.ViewById;
+
+import java.util.List;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, TransactionAdapter.ViewHolder> {
-    AppCompatActivity activity;
+    ListTransactionsActivity activity;
 
-    public TransactionAdapter(AppCompatActivity activity, @Nullable OrderedRealmCollection<Transaction> data, boolean autoUpdate) {
+    public TransactionAdapter(ListTransactionsActivity activity, @Nullable OrderedRealmCollection<Transaction> data, boolean autoUpdate) {
         super(data, autoUpdate);
         this.activity = activity;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView person, info;
+        ConstraintLayout item;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
             person = itemView.findViewById(R.id.transactionPerson);
             info = itemView.findViewById(R.id.transactionInfo);
+            item = itemView.findViewById(R.id.View_Transaction);
         }
     }
 
@@ -35,6 +47,7 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = activity.getLayoutInflater().inflate(R.layout.transaction_layout, parent, false);
         ViewHolder vh = new ViewHolder(v);
+
         return vh;
     }
 
@@ -50,7 +63,16 @@ public class TransactionAdapter extends RealmRecyclerViewAdapter<Transaction, Tr
             holder.info.setText("O You: PHP " + String.format("%.2f",transaction.getAmount()));
         }
 
-        // The whole item is meant to be clickable, so I think a click listener has to go here?
-        // There isn't a specific button within the item
+        holder.item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.putInPrefs(transaction);
+                if (transaction.isActive()) {
+                    ViewTransactionActivity_.intent(activity).start();
+                } else {
+//                    ViewHistoryTransactionActivity_.intent(activity).start();
+                }
+            }
+        });
     }
 }
