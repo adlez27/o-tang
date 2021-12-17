@@ -16,86 +16,31 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
 
-    <ToggleButton
-        android:id="@+id/activeFilterReceive"
-        android:layout_width="108dp"
-        android:layout_height="35dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/paleorange"
-        android:checked="true"
-        android:text="O Me Money"
-        android:textOff="O Me Money"
-        android:textOn="O Me Money"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <ToggleButton
-        android:id="@+id/activeFilterDebt"
-        android:layout_width="95dp"
-        android:layout_height="35dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/paleorange"
-        android:checked="true"
-        android:text="O Money To"
-        android:textOff="O Money To"
-        android:textOn="O Money To"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <ToggleButton
-        android:id="@+id/activeFilterAll"
-        android:layout_width="95dp"
-        android:layout_height="35dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/paleorange"
-        android:checked="true"
-        android:text="All"
-        android:textOff="All"
-        android:textOn="All"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activeTransactionsRecycler"
-        android:layout_width="306dp"
-        android:layout_height="381dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="305dp"
+        android:layout_height="253dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activeFilterReceive"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/activeFilterGroup"
+        app:layout_constraintVertical_bias="0.185">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activeTransactionsRecycler">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -141,5 +86,44 @@
             app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RadioGroup
+        android:id="@+id/activeFilterGroup"
+        android:layout_width="316dp"
+        android:layout_height="110dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activeTransactionsLabel"
+        app:layout_constraintVertical_bias="0.067">
+
+        <RadioButton
+            android:id="@+id/activeFilterDebt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:text="O MONEY TO" />
+
+        <RadioButton
+            android:id="@+id/activeFilterReceive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:text="O ME MONEY" />
+
+        <RadioButton
+            android:id="@+id/activeFilterAll"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:checked="true"
+            android:gravity="center"
+            android:text="ALL" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
